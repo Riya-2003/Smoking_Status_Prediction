@@ -40,7 +40,7 @@ def predict():
     if prediction[0] == 1:
         st.write['The person is a smoker :smoking:']
         
-     else:
+    else:
         st.write['The person is a non-smoker :no_smoking:']
     
 trigger = st.button('Predict', on_click=predict)
