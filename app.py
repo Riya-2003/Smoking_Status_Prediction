@@ -21,10 +21,12 @@ systolic = st.number_input("Systolic", 70.0, 250.0)
 fasting_blood_sugar = st.number_input("Fasting Blood Sugar", 40.0, 520.0)
 tartar = st.selectbox("Tartar(Y:1,N:0)", [0,1])
 relaxation = st.number_input("Relaxation", 40.0, 150.0)
+dental_caries = st.selectbox("Dental Caries(Y:1,N:0)", [0,1])
+Cholesterol = st.number_input("Cholesterol", 50.0, 450.0)
 
 def predict():
-    float_features = [float(x) for x in [height_cm, hemoglobin, Gtp, triglyceride, waist_cm, HDL, ALT, systolic, fasting_blood_sugar, relaxation]]
-    categorical_features = [gender, tartar]
+    float_features = [float(x) for x in [height_cm, hemoglobin, Gtp, triglyceride, waist_cm, HDL, ALT, systolic, fasting_blood_sugar, relaxation,Cholesterol]]
+    categorical_features = [gender, tartar, dental_caries]
     integer_features = [age, weight_kg]
 
     final_features = [np.array(float_features + integer_features + categorical_features)]
