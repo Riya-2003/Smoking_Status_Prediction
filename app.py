@@ -6,7 +6,7 @@ model =  joblib.load('model.joblib')
 
 st.title('What is the Smoking Status of the person? :smoking:')
 
-gender = st.selectbox("Gender", ["M", "F"])
+gender = st.selectbox("Gender(M:0,F:1)", [0,1])
 height_cm = st.number_input("Height", 100.0, 200.0)
 hemoglobin = st.number_input("Hemoglobin", 4.0, 22.0)
 Gtp = st.number_input("Gtp", 1.0, 1000.0)
@@ -19,11 +19,11 @@ ALT = st.number_input("ALT", 1.0, 3000.0)
 age = st.slider("Age", 1, 80)
 systolic = st.number_input("Systolic", 70.0, 250.0)
 fasting_blood_sugar = st.number_input("Fasting Blood Sugar", 40.0, 520.0)
-tartar = st.selectbox("Tartar", ["Y", "N"])
-relaxation = st.number_input("Relaxation", 40.0, 150.0)
+tartar = st.selectbox("Tartar(Y:1,N:0)", [0,1])
+# relaxation = st.number_input("Relaxation", 40.0, 150.0)
 
 def predict():
-    float_features = [float(x) for x in [height_cm, hemoglobin, Gtp, triglyceride, waist_cm, HDL, ALT, systolic, fasting_blood_sugar, relaxation]]
+    float_features = [float(x) for x in [height_cm, hemoglobin, Gtp, triglyceride, waist_cm, HDL, ALT, systolic, fasting_blood_sugar]]
     categorical_features = [gender, tartar]
     integer_features = [age, weight_kg]
 
